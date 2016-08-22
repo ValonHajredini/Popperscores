@@ -23,8 +23,12 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'popperscores' ); ?></a>
+	<?php if ( get_header_image() ) : ?>
+	<header id="masthead" class="site-header" style="background-image:url( <?php header_image(); ?> )" role="banner">
+		<?php else : ?>
+		<header id="masthead" class="site-header" role="banner">
+			<?php endif;?>
 
-	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
