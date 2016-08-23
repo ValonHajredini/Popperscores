@@ -106,8 +106,15 @@ function popperscores_scripts() {
 
 //  Fonts from the google
 //  wp_enqueue_style('papperscores-google-fonts', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i|Merriweather:400,400i,700,700i' );
+    wp_enqueue_style('font-awsome','https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
     wp_enqueue_style('papperscores-google-fonts', get_template_directory_uri(). '/fonts/custom-fonts.css');
-	wp_enqueue_script( 'popperscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'popperscores-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+
+    wp_localize_script( 'popperscores-navigation', 'screenReaderText', array(
+        'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'popperscores' ) . '</span>',
+        'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'popperscores' ) . '</span>',
+    ) );
 
 	wp_enqueue_script( 'popperscores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
