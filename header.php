@@ -28,7 +28,25 @@
 		<?php else : ?>
 		<header id="masthead" class="site-header" role="banner">
 			<?php endif;?>
+		<div class="site-logo">
+			<?php $site_title = get_bloginfo('name')?>
+			<a href="<?php echo esc_url(home_url('/')); ?>">
+<!--				<div class="screen -reader-text">-->
+<!--					--><?php //printf(esc_html__('go to the homepage of 1%$s', 'poperscores'))?>
+<!--				</div>-->
+				<?php if ( has_site_icon()):?>
+					<?php $site_icon = esc_url(get_site_icon_url(270));?>
+					<img src="<?php echo $site_icon?>" class="site-icon" alt="">
+				<?php else :?>
+					<div class="site-firstletter" aria-label=""aria-hidden="true">
+						<?php echo substr($site_title, 0 , 1)?>
 
+
+					</div>
+				<?php endif;?>
+
+			</a>
+		</div>
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
